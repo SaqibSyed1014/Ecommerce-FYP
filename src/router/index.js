@@ -51,6 +51,26 @@ const router = new VueRouter({
       },
     },
     {
+      path: '/all-products',
+      name: 'all-products',
+      component: () => import('@/views/modules/Products/AllProducts.vue'),
+      meta: {
+        layout: 'full',
+        requireAuth: true,
+        redirectIfLoggedIn: true,
+      },
+    },
+    {
+      path: '/product/:id',
+      name: 'product-details',
+      component: () => import('@/views/modules/Products/ProductDetails.vue'),
+      meta: {
+        layout: 'full',
+        requireAuth: true,
+        redirectIfLoggedIn: true,
+      },
+    },
+    {
       path: '*',
       redirect: 'error-404',
     },
