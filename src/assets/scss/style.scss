@@ -16,6 +16,44 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 label {
   color: var(--primary);
 }
-.btn{
-  border-radius: 0;
+.btn, .card{
+  border-radius: 0 !important;
+}
+
+.collapse-title{
+  color: #333;
+  font-size: 1.3rem !important;
+}
+.collapse-default{
+  .card{
+    box-shadow: none;
+    .card-header{
+      padding: 1.3rem 2.8rem 1.3rem 1rem;
+    }
+  }
+}
+
+.color-badge{
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0 0.2rem 0.3rem;
+  border: 0.2rem solid #fff;
+  &:hover{
+    box-shadow: 0 0 0 0.1rem #ccc;
+  }
+}
+
+.breadcrumb-item {
+  color: #00cfe8;
+  a{
+    color: #777;
+    &:hover{ color: var(--primary); }
+  }
+  .active { color: var(--primary) !important; }
+}
+.breadcrumb-wrapper{
+  padding: 1rem 0;
+  border-bottom: 0.1rem solid hsla(0,0%,92.2%,.55);
 }

@@ -68,6 +68,7 @@ export default {
     width: 100%;
     height: 250px;
     cursor: pointer;
+    border: 1px solid #eae8e8;
     .product-left-action{
       position: absolute;
       top: 20px;
@@ -91,7 +92,7 @@ export default {
       justify-content: center;
       align-items: center;
       grid-gap: 10px;
-      background-color: hsla(0,0%,100%,.95);
+      background-color: white;
       z-index: 10;
       transition: all .35s ease;
       opacity: 0;
@@ -137,14 +138,14 @@ export default {
       font-size: 1.2rem;
       line-height: 1.25;
       letter-spacing: -.01em;
-      color: #333;
       margin-bottom: 0.2rem;
       text-transform: capitalize;
       text-align: center;
+      a { color: black; }
     }
     .product-price{
       text-align: center;
-      color: var(--secondary);
+      color: var(--primary);
       font-weight: 400;
       font-size: 1.2rem;
       line-height: 1.25;

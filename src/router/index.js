@@ -57,7 +57,15 @@ const router = new VueRouter({
       meta: {
         layout: 'full',
         requireAuth: true,
-        redirectIfLoggedIn: true,
+        breadcrumb: [
+          {
+            text: 'Home',
+          },
+          {
+            text: 'Shop',
+            active: true,
+          },
+        ],
       },
     },
     {
