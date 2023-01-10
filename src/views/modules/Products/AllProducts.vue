@@ -23,8 +23,8 @@
           <div class="filter-section">
             <label>Filters:</label>
             <app-collapse>
-              <app-collapse-item title="Category" />
-              <app-collapse-item title="Size">
+              <app-collapse-item is-visible title="Category" />
+              <app-collapse-item is-visible title="Size">
                 <b-checkbox
                   v-for="(size, i) in sizes"
                   :key="i"
@@ -35,12 +35,12 @@
                   {{ size }}
                 </b-checkbox>
               </app-collapse-item>
-              <app-collapse-item title="Color">
+              <app-collapse-item is-visible title="Color">
                 <b-row style="grid-gap: 5px; padding: 0 15px;">
                   <div v-for="color in colors" :key="color" :style="{ background: color }" class="color-badge" />
                 </b-row>
               </app-collapse-item>
-              <app-collapse-item title="Price">
+              <app-collapse-item is-visible title="Price">
                 <b-row class="mb-1">
                   <b-col cols="6" style="padding-right: 7px;"><b-form-input placeholder="Max Value" /></b-col>
                   <b-col cols="6" style="padding-left: 7px;"><b-form-input placeholder="Min Value" /></b-col>

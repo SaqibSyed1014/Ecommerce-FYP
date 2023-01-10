@@ -2,7 +2,8 @@
   <b-card no-body class="product shadow-none">
     <figure class="product-media">
       <router-link :to="`product/${product.id}`">
-        <b-card-img src="../../../../assets/products/blueGoves.jpg"></b-card-img>
+        <b-card-img src="../../../../assets/products/blueGoves.jpg" />
+        <b-card-img src="../../../../assets/products/gloves.jpg" />
       </router-link>
       <div class="product-left-action">
         <div class="icon-bubble">
@@ -57,6 +58,9 @@ export default {
       visibility: visible;
       opacity: 1;
       transform: translateX(0);
+    }
+    & img:nth-child(2) {
+      opacity: 1 !important;
     }
   }
   .product-media{
@@ -114,6 +118,10 @@ export default {
       height: 100%;
       object-fit: contain;
       z-index: 2;
+    }
+    img:nth-child(2){
+      opacity: 0;
+      transition: opacity .35s ease;
     }
   }
   .product-body{
