@@ -7,10 +7,10 @@
       </router-link>
       <div class="product-left-action">
         <div class="icon-bubble">
-          <feather-icon icon="ShoppingCartIcon" size="15" />
+          <feather-icon icon="HeartIcon" size="15" />
         </div>
         <div class="icon-bubble">
-          <feather-icon icon="ShoppingCartIcon" size="15" />
+          <feather-icon icon="ZoomInIcon" size="15" />
         </div>
       </div>
       <div class="product-action">
