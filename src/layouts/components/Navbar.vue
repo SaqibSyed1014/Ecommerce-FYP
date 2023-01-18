@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar-container d-flex content align-items-center">
+  <div class="navbar-container d-flex align-items-center justify-content-between px-2 pt-1">
 
     <!-- Nav Menu Toggler -->
     <ul class="nav navbar-nav d-xl-none">
@@ -16,13 +16,18 @@
       </li>
     </ul>
     <!-- Left Col -->
-    <div class="bookmark-wrapper align-items-center flex-grow-1 d-none d-lg-flex">
-      <h3>
-        Manage My Dojo - Dashboard
-      </h3>
+    <div class="bookmark-wrapper align-items-center d-none d-lg-flex">
+      <h3>Eco-shop</h3>
     </div>
-    <b-navbar-nav class="nav align-items-center ml-auto">
-      User Dropdown
+    <div class="search-products w-50">
+      <b-input-group class="input-group-merge">
+        <b-form-input placeholder="Search products" />
+        <b-input-group-append is-text>
+          <feather-icon icon="SearchIcon" />
+        </b-input-group-append>
+      </b-input-group>
+    </div>
+    <b-navbar-nav class="nav align-items-center">
       <user-dropdown />
     </b-navbar-nav>
   </div>

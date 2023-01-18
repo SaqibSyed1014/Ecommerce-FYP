@@ -5,26 +5,27 @@
     class="dropdown-user"
   >
     <template #button-content>
-      <div class="d-sm-flex d-none user-nav">
-        <p class="user-name font-weight-bolder mb-0">
-          {{ userData.fullName || userData.username }}
-        </p>
-        <span class="user-status">{{ userData.role }}</span>
-      </div>
-      <b-avatar
-        size="40"
-        :src="userData.avatar"
-        variant="light-primary"
-        badge
-        class="badge-minimal"
-        badge-variant="success"
-      >
+      <div class="user-account">
         <feather-icon
-          v-if="!userData.fullName"
           icon="UserIcon"
           size="22"
         />
-      </b-avatar>
+        <p>Account</p>
+      </div>
+      <div class="user-wishlist">
+        <feather-icon
+          icon="HeartIcon"
+          size="22"
+        />
+        <p>Wishlist</p>
+      </div>
+      <div class="user-cart">
+        <feather-icon
+          icon="ShoppingCartIcon"
+          size="22"
+        />
+        <p>Cart</p>
+      </div>
     </template>
 
     <b-dropdown-item
@@ -117,7 +118,8 @@
         class="mr-50"
       />
       <span>Logout</span>
-    </b-dropdown-item></b-nav-item-dropdown>
+    </b-dropdown-item>
+  </b-nav-item-dropdown>
 </template>
 
 <script>

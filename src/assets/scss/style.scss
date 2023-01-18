@@ -57,3 +57,26 @@ label {
   padding: 1rem 0;
   border-bottom: 0.1rem solid hsla(0,0%,92.2%,.55);
 }
+
+.navbar-container{
+  border-bottom: 1px solid rgba(235, 235, 235, 0.55);
+}
+.nav .dropdown-toggle:not(.active)::after{
+  display: none;
+}
+.dropdown-user{
+  .nav-link {
+    grid-gap: 15px;
+    .user-account, .user-wishlist, .user-cart {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      grid-gap: 5px;
+      transition: color .3s ease;
+      p{
+        margin-bottom: 0;
+      }
+      &:hover{ color: var(--primary); }
+    }
+  }
+}
