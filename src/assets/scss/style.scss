@@ -73,10 +73,24 @@ label {
       align-items: center;
       flex-direction: column;
       grid-gap: 5px;
+      position: relative;
       transition: color .3s ease;
-      p{
-        margin-bottom: 0;
+      .badge-primary{
+        position: absolute;
+        top: -7px;
+        right: -7px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 17px;
+        height: 17px;
+        font-size: .7rem;
       }
+      .wishlist-badge{
+        right: 7px;
+      }
+      p{ margin-bottom: 0; font-size: 1rem }
       &:hover{ color: var(--primary); }
     }
   }

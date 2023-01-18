@@ -233,7 +233,6 @@ export default {
     font-size: 1.25rem;
     padding-left: 1rem;
     padding-bottom: 1rem;
-    margin: 0 0 2rem;
     display: block;
     width: 100%;
     border-bottom: 0.1rem solid #ebebeb;

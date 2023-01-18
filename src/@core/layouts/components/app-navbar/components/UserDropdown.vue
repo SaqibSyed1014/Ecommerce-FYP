@@ -8,21 +8,23 @@
       <div class="user-account">
         <feather-icon
           icon="UserIcon"
-          size="22"
+          size="25"
         />
         <p>Account</p>
       </div>
       <div class="user-wishlist">
+        <b-badge class="wishlist-badge" variant="primary">0</b-badge>
         <feather-icon
           icon="HeartIcon"
-          size="22"
+          size="25"
         />
         <p>Wishlist</p>
       </div>
       <div class="user-cart">
+        <b-badge variant="primary">0</b-badge>
         <feather-icon
           icon="ShoppingCartIcon"
-          size="22"
+          size="25"
         />
         <p>Cart</p>
       </div>
