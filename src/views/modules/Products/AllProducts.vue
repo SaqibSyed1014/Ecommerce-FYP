@@ -85,15 +85,17 @@
         <b-col xl="9">
           <b-col>
             <b-row>
-              <feather-icon
-                v-b-toggle.filter-sidebar
-                icon="MenuIcon"
-                size="22"
-                class="filter-icon"
-              />
-              <div class="filter-btn d-block d-xl-none">
-                FILTERS
-              </div>
+              <b-row class="d-flex d-xl-none" style="padding: 0 15px;">
+                <feather-icon
+                  v-b-toggle.filter-sidebar
+                  icon="MenuIcon"
+                  size="22"
+                  class="filter-icon"
+                />
+                <div class="filter-btn">
+                  FILTERS
+                </div>
+              </b-row>
               <label class="products-visible">Showing <span>12 of 35</span> Products</label>
             </b-row>
           </b-col>
@@ -223,8 +225,8 @@ export default {
 
 <style scoped lang="scss">
 .filter-section{
-  position: fixed;
-  width: 290px;
+  //position: fixed; //for fixed filer panel & scrollable product view
+  //width: 290px;
   background: white;
   label{
     font-weight: 400;
@@ -250,6 +252,7 @@ export default {
   padding-bottom: 1rem;
   font-weight: 400;
   margin-bottom: 0;
+  display: inline;
   span{ color: var(--primary); }
 }
 .b-sidebar-header{

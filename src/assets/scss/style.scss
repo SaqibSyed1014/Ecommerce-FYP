@@ -9,7 +9,7 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 .form-control{
   border-radius: 0;
   &::placeholder{
-    color: var(--primary);
+    color: #333;
     opacity: 0.2;
   }
 }
@@ -67,6 +67,7 @@ label {
 .dropdown-user{
   .nav-link {
     grid-gap: 15px;
+    color: #333;
     .user-account, .user-wishlist, .user-cart {
       display: flex;
       align-items: center;
