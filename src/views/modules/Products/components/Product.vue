@@ -1,10 +1,10 @@
 <template>
   <b-card no-body class="product shadow-none">
     <figure class="product-media">
-      <router-link :to="`product/${product.id}`">
+      <div @click="navigateDetails">
         <b-card-img src="../../../../assets/products/blueGoves.jpg" />
         <b-card-img src="../../../../assets/products/gloves.jpg" />
-      </router-link>
+      </div>
       <div class="product-left-action">
         <div class="icon-bubble">
           <feather-icon icon="HeartIcon" size="15" />
@@ -35,6 +35,12 @@ export default {
     product: {
       type: Object,
       required: true,
+    },
+  },
+  methods: {
+    navigateDetails() {
+      localStorage.setItem('view-details', JSON.stringify(this.product))
+      this.$router.push({ name: 'product-details', params: { name: this.product.name } })
     },
   },
 }

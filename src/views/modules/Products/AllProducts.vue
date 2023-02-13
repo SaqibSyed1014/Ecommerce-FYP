@@ -1,19 +1,6 @@
 <template>
   <div>
-    <div class="breadcrumb-wrapper mb-2">
-      <b-container>
-        <b-breadcrumb>
-          <b-breadcrumb-item
-            v-for="item in $route.meta.breadcrumb"
-            :key="item.text"
-            :active="item.active"
-            :to="item.to"
-          >
-            {{ item.text }}
-          </b-breadcrumb-item>
-        </b-breadcrumb>
-      </b-container>
-    </div>
+    <bread-crumbs />
     <b-container>
       <b-row>
         <b-col
@@ -186,6 +173,7 @@
 <script>
 import AppCollapse from '@core/components/app-collapse/AppCollapse.vue'
 import AppCollapseItem from '@core/components/app-collapse/AppCollapseItem.vue'
+import BreadCrumbs from '@/views/modules/Products/components/BreadCrumbs.vue'
 import product from './components/Product.vue'
 
 export default {
@@ -194,6 +182,7 @@ export default {
     product,
     AppCollapse,
     AppCollapseItem,
+    BreadCrumbs,
   },
   data: () => ({
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
@@ -201,22 +190,22 @@ export default {
     selectedSize: [],
     products: [
       {
-        id: 1, name: 'nnn', price: '22', desc: 'kkkkkk', image: '', category: 'men',
+        id: 1, name: 'Shoes', price: '22', desc: 'kkkkkk', image: '', category: 'men',
       },
       {
-        id: 2, name: 'nnn', price: '19', desc: 'kkkkkk', image: '', category: 'women',
+        id: 2, name: 'Black Shirt', price: '19', desc: 'kkkkkk', image: '', category: 'women',
       },
       {
-        id: 3, name: 'nnn', price: '22', desc: 'kkkkkk', image: '', category: 'men',
+        id: 3, name: 'Red Cap', price: '22', desc: 'kkkkkk', image: '', category: 'men',
       },
       {
-        id: 4, name: 'nnn', price: '19', desc: 'kkkkkk', image: '', category: 'women',
+        id: 4, name: 'Orange Bag', price: '19', desc: 'kkkkkk', image: '', category: 'women',
       },
       {
-        id: 5, name: 'nnn', price: '22', desc: 'kkkkkk', image: '', category: 'men',
+        id: 5, name: 'Sneakers', price: '22', desc: 'kkkkkk', image: '', category: 'men',
       },
       {
-        id: 6, name: 'nnn', price: '19', desc: 'kkkkkk', image: '', category: 'women',
+        id: 6, name: 'Balloon', price: '19', desc: 'kkkkkk', image: '', category: 'women',
       },
     ],
   }),

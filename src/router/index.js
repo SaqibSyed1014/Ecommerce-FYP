@@ -78,13 +78,25 @@ const router = new VueRouter({
           },
         },
         {
-          path: '/product/:id',
+          path: '/product/:name',
           name: 'product-details',
           component: () => import('@/views/modules/Products/ProductDetails.vue'),
           meta: {
             layout: 'full',
             requireAuth: true,
             redirectIfLoggedIn: true,
+            breadcrumb: [
+              {
+                text: 'Home',
+              },
+              {
+                text: 'Shop',
+              },
+              {
+                text: ':name',
+                active: true,
+              },
+            ],
           },
         },
       ],
