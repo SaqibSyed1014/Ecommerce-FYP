@@ -69,6 +69,7 @@ const router = new VueRouter({
             breadcrumb: [
               {
                 text: 'Home',
+                to: '/home',
               },
               {
                 text: 'Shop',
@@ -88,9 +89,11 @@ const router = new VueRouter({
             breadcrumb: [
               {
                 text: 'Home',
+                to: '/home',
               },
               {
                 text: 'Shop',
+                to: '/products/all',
               },
               {
                 text: ':name',
