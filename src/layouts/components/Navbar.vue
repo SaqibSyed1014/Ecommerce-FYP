@@ -30,17 +30,43 @@
       </b-input-group>
     </div>
     <b-navbar-nav class="nav align-items-center">
-      <user-dropdown />
+      <b-col>
+        <b-row class="menu-options">
+          <div class="user-account" @click="$router.push({ name: 'orders-settings' })">
+            <feather-icon
+              icon="UserIcon"
+              size="25"
+            />
+            <p>Account</p>
+          </div>
+          <div class="user-wishlist">
+            <b-badge class="wishlist-badge" variant="primary">0</b-badge>
+            <feather-icon
+              icon="HeartIcon"
+              size="25"
+            />
+            <p>Wishlist</p>
+          </div>
+          <div class="user-cart">
+            <b-badge variant="primary">0</b-badge>
+            <feather-icon
+              icon="ShoppingCartIcon"
+              size="25"
+            />
+            <p>Cart</p>
+          </div>
+        </b-row>
+      </b-col>
     </b-navbar-nav>
   </div>
 </template>
 
 <script>
-import UserDropdown from '@core/layouts/components/app-navbar/components/UserDropdown.vue'
+// import UserDropdown from '@core/layouts/components/app-navbar/components/UserDropdown.vue'
 
 export default {
   components: {
-    UserDropdown,
+    // UserDropdown,
   },
   props: {
     toggleVerticalMenuActive: {
@@ -50,3 +76,9 @@ export default {
   },
 }
 </script>
+
+<style scoped lang="scss">
+.settings-tab{
+
+}
+</style>

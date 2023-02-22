@@ -65,7 +65,7 @@ const router = new VueRouter({
           component: () => import('@/views/modules/Products/AllProducts.vue'),
           meta: {
             layout: 'full',
-            requireAuth: true,
+            requireAuth: false,
             breadcrumb: [
               {
                 text: 'Home',
@@ -84,7 +84,7 @@ const router = new VueRouter({
           component: () => import('@/views/modules/Products/ProductDetails.vue'),
           meta: {
             layout: 'full',
-            requireAuth: true,
+            requireAuth: false,
             redirectIfLoggedIn: true,
             breadcrumb: [
               {
@@ -101,6 +101,87 @@ const router = new VueRouter({
               },
             ],
           },
+        },
+        {
+          path: '/settings',
+          name: 'account-settings',
+          component: () => import('@/views/modules/Account Settings/AccountSettings.vue'),
+          meta: {
+            layout: 'full',
+            requireAuth: true,
+          },
+          redirect: '/orders-settings',
+          children: [
+            {
+              path: '/orders-settings',
+              name: 'orders-settings',
+              component: () => import('@/views/modules/Account Settings/Orders.vue'),
+              meta: {
+                layout: 'full',
+                requireAuth: true,
+                breadcrumb: [
+                  {
+                    text: 'Home',
+                    to: '/home',
+                  },
+                  {
+                    text: 'Shop',
+                    to: '/products/all',
+                  },
+                  {
+                    text: 'Order Settings',
+                    active: true,
+                  },
+                ],
+              },
+            },
+            {
+              path: '/addresses-settings',
+              name: 'addresses-settings',
+              component: () => import('@/views/modules/Account Settings/Addresses.vue'),
+              meta: {
+                layout: 'full',
+                requireAuth: true,
+                breadcrumb: [
+                  {
+                    text: 'Home',
+                    to: '/home',
+                  },
+                  {
+                    text: 'Shop',
+                    to: '/products/all',
+                  },
+                  {
+                    text: 'Addresses Settings',
+                    active: true,
+                  },
+                ],
+              },
+            },
+            {
+              path: '/account-details-settings',
+              name: 'account-details-settings',
+              component: () => import('@/views/modules/Account Settings/AccountDetails.vue'),
+              meta: {
+                layout: 'full',
+                requireAuth: true,
+                breadcrumb: [
+                  {
+                    text: 'Home',
+                    to: '/home',
+                  },
+                  {
+                    text: 'Shop',
+                    to: '/products/all',
+                  },
+                  {
+                    text: 'Account Details',
+                    active: true,
+                  },
+                ],
+              },
+            },
+          ],
         },
       ],
     },

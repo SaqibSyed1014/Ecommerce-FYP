@@ -64,35 +64,33 @@ label {
 .nav .dropdown-toggle:not(.active)::after{
   display: none;
 }
-.dropdown-user{
-  .nav-link {
-    grid-gap: 15px;
-    color: #333;
-    .user-account, .user-wishlist, .user-cart {
+
+.menu-options {
+  grid-gap: 15px;
+  color: #333;
+  .user-account, .user-wishlist, .user-cart {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    grid-gap: 5px;
+    position: relative;
+    cursor: pointer;
+    transition: color .3s ease;
+    .badge-primary{
+      position: absolute;
+      top: -7px;
+      right: -7px;
+      border-radius: 50%;
       display: flex;
+      justify-content: center;
       align-items: center;
-      flex-direction: column;
-      grid-gap: 5px;
-      position: relative;
-      transition: color .3s ease;
-      .badge-primary{
-        position: absolute;
-        top: -7px;
-        right: -7px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 17px;
-        height: 17px;
-        font-size: .7rem;
-      }
-      .wishlist-badge{
-        right: 7px;
-      }
-      p{ margin-bottom: 0; font-size: 1rem }
-      &:hover{ color: var(--primary); }
+      width: 17px;
+      height: 17px;
+      font-size: .7rem;
     }
+    .wishlist-badge{ right: 7px; }
+    p{ margin-bottom: 0; font-size: 1rem }
+    &:hover{ color: var(--primary); }
   }
 }
 
@@ -107,6 +105,15 @@ label {
       background-color: var(--primary) !important;
       cursor: pointer;
       & span, .feather{ color: white; }
+    }
+  }
+}
+
+.settings-tab{
+  ul li{
+    border-bottom: 1px solid #ebe9f1;
+    .nav-link{
+      padding: 1.3rem 0;
     }
   }
 }

@@ -32,4 +32,8 @@ export const products = [
   },
 ]
 
-export const test = '999'
+export const settingsTabs = [
+  { tab: 'Orders', type: 'orders' },
+  { tab: 'Addresses', type: 'addresses' },
+  { tab: 'Account Details', type: 'account-details' },
+]
