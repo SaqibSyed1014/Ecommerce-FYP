@@ -174,6 +174,7 @@
 import AppCollapse from '@core/components/app-collapse/AppCollapse.vue'
 import AppCollapseItem from '@core/components/app-collapse/AppCollapseItem.vue'
 import BreadCrumbs from '@/views/modules/Products/components/BreadCrumbs.vue'
+import { products } from '@/views/demoData'
 import product from './components/Product.vue'
 
 export default {
@@ -188,26 +189,7 @@ export default {
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
     colors: ['red', 'black', 'yellow', 'blue', 'orange'],
     selectedSize: [],
-    products: [
-      {
-        id: 1, name: 'Shoes', price: '22', desc: 'kkkkkk', image: '', category: 'men',
-      },
-      {
-        id: 2, name: 'Black Shirt', price: '19', desc: 'kkkkkk', image: '', category: 'women',
-      },
-      {
-        id: 3, name: 'Red Cap', price: '22', desc: 'kkkkkk', image: '', category: 'men',
-      },
-      {
-        id: 4, name: 'Orange Bag', price: '19', desc: 'kkkkkk', image: '', category: 'women',
-      },
-      {
-        id: 5, name: 'Sneakers', price: '22', desc: 'kkkkkk', image: '', category: 'men',
-      },
-      {
-        id: 6, name: 'Balloon', price: '19', desc: 'kkkkkk', image: '', category: 'women',
-      },
-    ],
+    products,
   }),
 }
 </script>
