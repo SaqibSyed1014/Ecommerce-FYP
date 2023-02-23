@@ -56,6 +56,9 @@ label {
 .breadcrumb-wrapper{
   padding: 1rem 0;
   border-bottom: 0.1rem solid hsla(0,0%,92.2%,.55);
+  & .breadcrumb{
+    padding: .3rem 0;
+  }
 }
 
 .navbar-container{
@@ -114,6 +117,18 @@ label {
     border-bottom: 1px solid #ebe9f1;
     .nav-link{
       padding: 1.3rem 0;
+      position: relative;
+      svg{
+        position: absolute;
+        opacity: 0;
+        left: -20px;
+        transition: all .3s;
+        margin-bottom: 5px;
+      }
+      &.active{
+        padding-left: 1.5rem;
+        svg{ opacity: 1; left: 0; }
+      }
     }
   }
 }

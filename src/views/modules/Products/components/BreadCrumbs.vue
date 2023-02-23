@@ -20,7 +20,3 @@ export default {
   name: 'BreadCrumbs',
 }
 </script>
-
-<style scoped>
-
-</style>

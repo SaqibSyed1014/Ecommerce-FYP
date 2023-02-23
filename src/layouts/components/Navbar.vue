@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar-container d-flex align-items-center justify-content-between px-2 py-1">
+  <div class="navbar-container d-flex align-items-center justify-content-between p-1">
 
     <!-- Nav Menu Toggler -->
     <b-row class="align-items-center" style="padding: 0 15px;">

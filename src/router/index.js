@@ -181,6 +181,29 @@ const router = new VueRouter({
                 ],
               },
             },
+            {
+              path: '/sign-out',
+              name: 'sign-out',
+              component: () => import('@/views/modules/Account Settings/SignOut.vue'),
+              meta: {
+                layout: 'full',
+                requireAuth: true,
+                breadcrumb: [
+                  {
+                    text: 'Home',
+                    to: '/home',
+                  },
+                  {
+                    text: 'Shop',
+                    to: '/products/all',
+                  },
+                  {
+                    text: 'Sign Out',
+                    active: true,
+                  },
+                ],
+              },
+            },
           ],
         },
       ],
