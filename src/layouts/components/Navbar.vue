@@ -39,7 +39,7 @@
             />
             <p>Account</p>
           </div>
-          <div class="user-wishlist">
+          <div class="user-wishlist" @click="$router.push({ name: 'user-wishlist' })">
             <b-badge class="wishlist-badge" variant="primary">0</b-badge>
             <feather-icon
               icon="HeartIcon"

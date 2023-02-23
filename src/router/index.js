@@ -56,8 +56,8 @@ const router = new VueRouter({
     },
     {
       path: '/products',
-      name: 'ProductsViewLayout',
-      component: () => import('@/views/layouts/ProductsViewLayout.vue'),
+      name: 'ShopViewLayout',
+      component: () => import('@/views/layouts/ShopViewLayout.vue'),
       children: [
         {
           path: '/products/all',
@@ -97,6 +97,30 @@ const router = new VueRouter({
               },
               {
                 text: ':name',
+                active: true,
+              },
+            ],
+          },
+        },
+        {
+          path: '/user/wishlist',
+          name: 'user-wishlist',
+          component: () => import('@/views/modules/WishList/WishListProducts.vue'),
+          meta: {
+            layout: 'full',
+            requireAuth: false,
+            redirectIfLoggedIn: true,
+            breadcrumb: [
+              {
+                text: 'Home',
+                to: '/home',
+              },
+              {
+                text: 'Shop',
+                to: '/products/all',
+              },
+              {
+                text: 'Wishlist',
                 active: true,
               },
             ],
