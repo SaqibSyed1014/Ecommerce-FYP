@@ -53,6 +53,7 @@ export default {
   margin-bottom: 1.8rem;
   transition: box-shadow .35s ease;
   background-color: #fff;
+  border: 1px solid #eae8e8;
   &:hover{
     box-shadow: 0 15px 20px rgb(0 0 0 / 5%) !important;
     & .product-media .product-action{
@@ -78,7 +79,7 @@ export default {
     width: 100%;
     height: 250px;
     cursor: pointer;
-    border: 1px solid #eae8e8;
+    border-bottom: 1px solid #eae8e8;
     .product-left-action{
       position: absolute;
       top: 20px;

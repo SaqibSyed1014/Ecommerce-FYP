@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="product-view">
     <bread-crumbs />
     <b-container>
       <b-row>
@@ -29,7 +29,7 @@
               <label class="products-visible">Showing <span>12 of 35</span> Products</label>
             </b-row>
           </b-col>
-          <b-row>
+          <b-row class="product-list">
             <b-col
               v-for="product in products"
               :key="product.id"
@@ -76,6 +76,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.product-view{
+  .product-list{
+    .col-12{
+      padding-left: .8rem;
+      padding-right: .8rem;
+    }
+  }
+}
 .filter-section {
   //position: fixed; //for fixed filer panel & scrollable product view
   //width: 290px;
