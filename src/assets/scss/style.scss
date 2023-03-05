@@ -157,8 +157,18 @@ label {
       }
 
       &:hover {
-        color: var(--primary);
+        svg, p {
+          color: var(--primary);
+        }
       }
     }
   }
+}
+
+.wishlist-empty, .cart-empty{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
 }

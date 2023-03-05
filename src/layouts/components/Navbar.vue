@@ -48,7 +48,7 @@
             <p>Wishlist</p>
           </div>
           <div @mouseover="$refs['cart-dropdown'].visible = true" @mouseleave="$refs['cart-dropdown'].visible = false">
-            <b-dropdown class="cart-btn" menu-class="cart-dropdown" right ref="cart-dropdown">
+            <b-dropdown @toggle="routeToCart" toggle-tag="div" class="cart-btn" menu-class="cart-dropdown" right ref="cart-dropdown">
               <template #button-content>
                 <div class="user-cart">
                   <b-badge variant="primary">0</b-badge>
@@ -98,12 +98,10 @@ export default {
   data: () => ({
     cart: [],
   }),
+  methods: {
+    routeToCart() {
+      if (this.$route.name !== 'user-cart') this.$router.push({ name: 'user-cart' })
+    },
+  },
 }
 </script>
-
-<style scoped lang="scss">
-.settings-tab{
-
-}
-
-</style>

@@ -230,6 +230,29 @@ const router = new VueRouter({
             },
           ],
         },
+        {
+          path: '/user/cart',
+          name: 'user-cart',
+          component: () => import('@/views/modules/Cart/Cart.vue'),
+          meta: {
+            layout: 'full',
+            requireAuth: false,
+            breadcrumb: [
+              {
+                text: 'Home',
+                to: '/home',
+              },
+              {
+                text: 'Shop',
+                to: '/products/all',
+              },
+              {
+                text: 'Cart',
+                active: true,
+              },
+            ],
+          },
+        },
       ],
     },
     {
