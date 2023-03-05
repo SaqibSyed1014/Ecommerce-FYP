@@ -1,5 +1,5 @@
 <template>
-  <div class="breadcrumb-wrapper mb-2">
+  <div class="breadcrumb-wrapper mb-1">
     <b-container>
       <b-breadcrumb>
         <b-breadcrumb-item

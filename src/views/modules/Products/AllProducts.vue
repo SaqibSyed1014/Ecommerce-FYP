@@ -4,79 +4,22 @@
     <b-container>
       <b-row>
         <b-col
-          xl="3"
-          class="d-none d-xl-block"
+          lg="3"
+          class="d-none d-lg-block"
         >
           <div class="filter-section">
             <label>Filters:</label>
-            <app-collapse>
-              <app-collapse-item
-                is-visible
-                title="Category"
-              />
-              <app-collapse-item
-                is-visible
-                title="Size"
-              >
-                <b-checkbox
-                  v-for="(size, i) in sizes"
-                  :key="i"
-                  v-model="selectedSize"
-                  :value="size"
-                  class="mb-1"
-                >
-                  {{ size }}
-                </b-checkbox>
-              </app-collapse-item>
-              <app-collapse-item
-                is-visible
-                title="Color"
-              >
-                <b-row style="grid-gap: 5px; padding: 0 15px;">
-                  <div
-                    v-for="color in colors"
-                    :key="color"
-                    :style="{ background: color }"
-                    class="color-badge"
-                  />
-                </b-row>
-              </app-collapse-item>
-              <app-collapse-item
-                is-visible
-                title="Price"
-              >
-                <b-row class="mb-1">
-                  <b-col
-                    cols="6"
-                    style="padding-right: 7px;"
-                  >
-                    <b-form-input placeholder="Max Value" />
-                  </b-col>
-                  <b-col
-                    cols="6"
-                    style="padding-left: 7px;"
-                  >
-                    <b-form-input placeholder="Min Value" />
-                  </b-col>
-                </b-row>
-                <b-button
-                  block
-                  variant="primary"
-                >
-                  Apply
-                </b-button>
-              </app-collapse-item>
-            </app-collapse>
+            <filter-section />
           </div>
         </b-col>
-        <b-col xl="9">
+        <b-col lg="9">
           <b-col>
             <b-row>
-              <b-row class="d-flex d-xl-none" style="padding: 0 15px;">
+              <b-row class="d-flex d-lg-none" style="padding: 0 15px;">
                 <feather-icon
                   v-b-toggle.filter-sidebar
                   icon="MenuIcon"
-                  size="22"
+                  size="20"
                   class="filter-icon"
                 />
                 <div class="filter-btn">
@@ -108,98 +51,38 @@
       backdrop
       shadow
     >
-      <app-collapse>
-        <app-collapse-item
-          is-visible
-          title="Category"
-        />
-        <app-collapse-item
-          is-visible
-          title="Size"
-        >
-          <b-checkbox
-            v-for="(size, i) in sizes"
-            :key="i"
-            v-model="selectedSize"
-            :value="size"
-            class="mb-1"
-          >
-            {{ size }}
-          </b-checkbox>
-        </app-collapse-item>
-        <app-collapse-item
-          is-visible
-          title="Color"
-        >
-          <b-row style="grid-gap: 5px; padding: 0 15px;">
-            <div
-              v-for="color in colors"
-              :key="color"
-              :style="{ background: color }"
-              class="color-badge"
-            />
-          </b-row>
-        </app-collapse-item>
-        <app-collapse-item
-          is-visible
-          title="Price"
-        >
-          <b-row class="mb-1">
-            <b-col
-              cols="6"
-              style="padding-right: 7px;"
-            >
-              <b-form-input placeholder="Max Value" />
-            </b-col>
-            <b-col
-              cols="6"
-              style="padding-left: 7px;"
-            >
-              <b-form-input placeholder="Min Value" />
-            </b-col>
-          </b-row>
-          <b-button
-            block
-            variant="primary"
-          >
-            Apply
-          </b-button>
-        </app-collapse-item>
-      </app-collapse>
+      <filter-section />
     </b-sidebar>
   </div>
 </template>
 
 <script>
-import AppCollapse from '@core/components/app-collapse/AppCollapse.vue'
-import AppCollapseItem from '@core/components/app-collapse/AppCollapseItem.vue'
 import BreadCrumbs from '@/views/modules/Products/components/BreadCrumbs.vue'
 import { products } from '@/views/demoData'
+import FilterSection from '@/views/modules/Products/components/FilterSection.vue'
 import product from './components/Product.vue'
 
 export default {
   name: 'Products',
   components: {
     product,
-    AppCollapse,
-    AppCollapseItem,
     BreadCrumbs,
+    FilterSection,
   },
   data: () => ({
-    sizes: ['XS', 'S', 'M', 'L', 'XL'],
-    colors: ['red', 'black', 'yellow', 'blue', 'orange'],
-    selectedSize: [],
     products,
   }),
 }
 </script>
 
 <style scoped lang="scss">
-.filter-section{
+.filter-section {
   //position: fixed; //for fixed filer panel & scrollable product view
   //width: 290px;
   background: white;
-  label{
+
+  label {
+    color: #333;
     font-weight: 400;
     font-size: 1.25rem;
     padding-left: 1rem;
@@ -213,8 +96,9 @@ export default {
 .filter-btn{
   color: #333;
   font-weight: 400;
-  font-size: 1.25rem;
+  font-size: 1.05rem;
   margin-right: 25px;
+  margin-bottom: 5px;
 }
 .products-visible{
   color: #ccc;
@@ -224,6 +108,9 @@ export default {
   margin-bottom: 0;
   display: inline;
   span{ color: var(--primary); }
+  @media (max-width: 992px) {
+    font-size: 1.1rem;
+  }
 }
 .b-sidebar-header{
   background: var(--primary);

@@ -32,6 +32,13 @@ export const products = [
   },
 ]
 
+export const categories = [
+  { title: 'Electronics', num: 12 },
+  { title: 'Furniture', num: 5 },
+  { title: 'Clothes', num: 27 },
+  { title: 'Bed & Sofas', num: 9 },
+]
+
 export const settingsTabs = [
   { tab: 'Orders', type: 'orders' },
   { tab: 'Addresses', type: 'addresses' },

@@ -20,6 +20,13 @@ label {
   border-radius: 0 !important;
 }
 
+.container{
+  @media (max-width: 576px) {
+    padding-left: .7rem;
+    padding-right: .7rem;
+  }
+}
+
 .collapse-title{
   color: #333;
   font-size: 1.3rem !important;

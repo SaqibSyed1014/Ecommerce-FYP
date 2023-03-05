@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar-container d-flex align-items-center justify-content-between p-1">
+  <b-container class="navbar-container d-flex align-items-center justify-content-between py-1">
 
     <!-- Nav Menu Toggler -->
     <b-row class="align-items-center" style="padding: 0 15px;">
@@ -79,7 +79,7 @@
         </b-row>
       </b-col>
     </b-navbar-nav>
-  </div>
+  </b-container>
 </template>
 
 <script>
