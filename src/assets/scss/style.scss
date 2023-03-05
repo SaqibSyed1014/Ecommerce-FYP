@@ -45,22 +45,6 @@ label {
   }
 }
 
-.breadcrumb-item {
-  color: #00cfe8;
-  a{
-    color: #777;
-    &:hover{ color: var(--primary); }
-  }
-  .active { color: var(--primary) !important; }
-}
-.breadcrumb-wrapper{
-  padding: 1rem 0;
-  border-bottom: 0.1rem solid hsla(0,0%,92.2%,.55);
-  & .breadcrumb{
-    padding: .3rem 0;
-  }
-}
-
 .navbar-container{
   border-bottom: 1px solid rgba(235, 235, 235, 0.55);
 }
