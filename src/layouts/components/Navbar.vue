@@ -47,13 +47,34 @@
             />
             <p>Wishlist</p>
           </div>
-          <div class="user-cart">
-            <b-badge variant="primary">0</b-badge>
-            <feather-icon
-              icon="ShoppingCartIcon"
-              size="25"
-            />
-            <p>Cart</p>
+          <div @mouseover="$refs['cart-dropdown'].visible = true" @mouseleave="$refs['cart-dropdown'].visible = false">
+            <b-dropdown class="cart-btn" menu-class="cart-dropdown" right ref="cart-dropdown">
+              <template #button-content>
+                <div class="user-cart">
+                  <b-badge variant="primary">0</b-badge>
+                  <feather-icon
+                    icon="ShoppingCartIcon"
+                    size="25"
+                  />
+                  <p>Cart</p>
+                </div>
+              </template>
+              <b-col class="dropdown-cart-action">
+                <b-row v-if="cart.length">
+                  <b-col class="text-right">
+                    <b-button variant="primary">
+                      View Cart
+                    </b-button>
+                  </b-col>
+                  <b-col class="text-left">
+                    <b-button variant="primary">
+                      Checkout
+                    </b-button>
+                  </b-col>
+                </b-row>
+                <p v-else class="text-center">No products in the cart.</p>
+              </b-col>
+            </b-dropdown>
           </div>
         </b-row>
       </b-col>
@@ -74,6 +95,9 @@ export default {
       default: () => {},
     },
   },
+  data: () => ({
+    cart: [],
+  }),
 }
 </script>
 
@@ -81,4 +105,5 @@ export default {
 .settings-tab{
 
 }
+
 </style>

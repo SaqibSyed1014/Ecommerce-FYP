@@ -132,3 +132,33 @@ label {
     }
   }
 }
+
+.cart-btn {
+  .cart-dropdown{
+    width: 300px !important;
+    transform: translate3d(-270px, 46px, 0) !important;
+    padding: 1rem 0;
+    .dropdown-cart-action{
+      p{ font-size: 1.1rem; margin-bottom: 0; }
+    }
+  }
+  .btn-secondary {
+    border-color: transparent !important;
+    background-color: transparent !important;
+    padding: 0;
+
+    &:hover {
+      box-shadow: none !important;
+    }
+
+    & .user-cart {
+      svg, p {
+        color: #333;
+      }
+
+      &:hover {
+        color: var(--primary);
+      }
+    }
+  }
+}
