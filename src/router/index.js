@@ -60,6 +60,15 @@ const router = new VueRouter({
       component: () => import('@/views/layouts/ShopViewLayout.vue'),
       children: [
         {
+          path: '/home',
+          name: 'home',
+          component: () => import('@/views/modules/Home/Home.vue'),
+          meta: {
+            layout: 'full',
+            requireAuth: true,
+          },
+        },
+        {
           path: '/products/all',
           name: 'all-products',
           component: () => import('@/views/modules/Products/AllProducts.vue'),
