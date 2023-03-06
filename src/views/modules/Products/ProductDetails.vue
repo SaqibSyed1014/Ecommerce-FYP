@@ -12,8 +12,9 @@
           <div class="sticky pb-1">
             <div class="product-title">{{ product.name }}</div>
             <div class="product-price">
-              <div class="new-price">{{ `${product.price}.00$` }}</div>
-              <div v-if="product.sale" class="old-price">{{ `${product.price}.00$` }}</div>
+              <span v-if="!product.sale">{{ `${product.price}.00$` }}</span>
+              <div v-if="product.sale" class="new-price">{{ `${product.price}.00$` }}</div>
+              <div v-if="product.sale" class="old-price">{{ `${product.oldPrice}.00$` }}</div>
             </div>
             <div class="product-description">{{ product.desc }}</div>
             <b-button variant="outline-primary">
@@ -65,7 +66,7 @@
                     </b-row>
                   </div>
                 </div>
-                <h3 v-else>No Reviews Posted Yet</h3>
+                <h4 v-else class="text-center">No Reviews Posted Yet</h4>
               </app-collapse-item>
             </app-collapse>
           </div>
@@ -125,10 +126,10 @@ export default {
       //border-bottom: 0.1rem solid #ebebeb;
     }
     .product-title{
-      font-weight: 400;
-      font-size: 2.4rem;
+      font-weight: 500;
+      font-size: 2.1rem;
       letter-spacing: -.025em;
-      margin-bottom: 1.2rem;
+      margin-bottom: .7rem;
       margin-top: -0.5rem;
       padding-right: 1rem;
     }
@@ -136,13 +137,14 @@ export default {
       display: flex;
       align-items: center;
       flex-flow: wrap;
-      font-weight: 400;
+      font-weight: 500;
       font-size: 1.6rem;
       line-height: 1.25;
-      margin-bottom: 1.3rem;
-      .new-price{ color: var(--danger); }
+      margin-bottom: .5rem;
+      .new-price{ color: #ef837b; }
       .old-price{
         color: #ccc;
+        margin-left: 1rem;
         text-decoration: line-through;
       }
     }
@@ -150,7 +152,7 @@ export default {
       font-size: 1.4rem;
       font-weight: 300;
       color: #777;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
     .product-category{
       font-weight: 400;
@@ -168,9 +170,6 @@ export default {
         font-weight: 400;
         font-size: 1.3rem;
         margin-bottom: .6rem;
-      }
-      h3{
-        text-align: center;
       }
     }
   }

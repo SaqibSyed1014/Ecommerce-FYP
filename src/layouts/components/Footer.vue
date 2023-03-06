@@ -63,7 +63,7 @@ export default {
 
 <style scoped lang="scss">
 footer{
-  margin-top: 3rem;
+  margin-top: 5rem;
   .footer-container, .footer-slope{
     background: #222;
     padding: 5rem 0;

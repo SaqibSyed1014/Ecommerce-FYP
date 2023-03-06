@@ -2,8 +2,8 @@
   <b-card no-body class="product shadow-none">
     <figure class="product-media">
       <div @click="navigateDetails">
-        <b-card-img src="../../../../assets/products/blueGoves.jpg" />
-        <b-card-img src="../../../../assets/products/gloves.jpg" />
+        <b-card-img :src="product.image[0]" :alt="product.name" />
+        <b-card-img v-if="product.image[1]" :src="product.image[1]" />
       </div>
       <div class="product-left-action">
         <div class="icon-bubble">
@@ -23,7 +23,11 @@
         <span>{{ product.category }}</span>
       </div>
       <h3 class="product-title"><a href="" class="">{{ product.name }}</a></h3>
-      <div class="product-price">{{ `${product.price}.00$` }}</div>
+      <div class="product-price">
+        <span v-if="!product.sale">{{ `${product.price}.00$` }}</span>
+        <span v-if="product.sale" class="new-price">{{ `${product.price}.00$` }}</span>
+        <span v-if="product.sale" class="old-price">{{ `${product.oldPrice}.00$` }}</span>
+      </div>
     </b-card-body>
   </b-card>
 </template>
@@ -149,22 +153,31 @@ export default {
       }
     }
     .product-title{
-      font-weight: 400;
+      font-weight: 500;
       font-size: 1.2rem;
       line-height: 1.25;
       letter-spacing: -.01em;
       margin-bottom: 0.2rem;
       text-transform: capitalize;
       text-align: center;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
       a { color: black; }
     }
     .product-price{
       text-align: center;
       color: var(--primary);
-      font-weight: 400;
+      font-weight: 500;
       font-size: 1.2rem;
       line-height: 1.25;
       margin-bottom: 1.3rem;
+      .new-price{ color: #ef837b; }
+      .old-price{
+        color: #ccc;
+        margin-left: .8rem;
+        text-decoration: line-through;
+      }
     }
   }
 }
