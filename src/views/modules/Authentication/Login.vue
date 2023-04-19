@@ -107,6 +107,7 @@
               type="submit"
               block
               :disabled="invalid"
+              @click="$router.push({ name: 'all-products' })"
             >
               Sign in
             </b-button>
