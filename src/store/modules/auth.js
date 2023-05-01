@@ -1,4 +1,5 @@
 import AuthService from '@/services/AuthService'
+import router from '@/router'
 
 const getters = {
   isAuthenticated: (state) => state.token || !!localStorage.getItem('token'),
@@ -6,7 +7,7 @@ const getters = {
 }
 const getDefaultState = () => ({
   token: null,
-  user: null,
+  user: {},
 })
 const mutations = {
   SET_USER_ROLES(state, roles) {
@@ -31,10 +32,13 @@ const mutations = {
 
 const state = getDefaultState()
 const actions = {
-  registerUser(vuexContext, { payload }) {
+  registerUser({ commit }, payload) {
+    console.log('pay ', payload)
     return AuthService.register(payload)
-      .then((data) => {
-        console.log(data)
+      .then((resp) => {
+        console.log(resp)
+        commit('SET_USER', resp?.data)
+        router.push({ name: 'auth-login' })
       })
       .catch((error) => {
         console.error(error)

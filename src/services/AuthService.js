@@ -1,13 +1,13 @@
 import axios from '@axios'
 
-const basePath = '/auth'
+const basePath = 'http://16.16.193.35/auth'
 export default {
   /**
    *  Accepts User details to register a user
    * @param {*} payload
    */
   register(payload) {
-    return axios.post(`${basePath}/register`, payload)
+    return axios.post(`${basePath}/create_buyer/`, payload)
   },
   /**
    *  Accepts credentials of user and post to server

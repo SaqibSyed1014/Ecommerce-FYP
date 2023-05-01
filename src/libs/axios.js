@@ -9,7 +9,7 @@ const axiosIns = axios.create({
 
 axiosIns.interceptors.request.use((request) => {
   // const token = localStorage.getItem('token')
-  const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQxOTEwNDc3LCJqdGkiOiJmZGIzZTQ4ZDgwMzU0NjMxYTg4OWQzNWVjODA5MDdhOCIsInVzZXJfaWQiOjI0LCJuYW1lIjoiZmFpemFuIHNhcmRhciJ9.G11uUurMXzctQNuZfxENKtvt-TGBLa6q-MWXD0xp3do'
+  const token = localStorage.getItem('token')
   if (token) {
     // eslint-disable-next-line no-param-reassign
     request.headers.Authorization = `Bearer ${token}`
@@ -27,6 +27,7 @@ const showNotification = (message) => {
 }
 axiosIns.interceptors.response.use(
   (response) => {
+    console.log('res ', response)
     if (
       localStorage.getItem('token') !== null
       && response
@@ -38,6 +39,7 @@ axiosIns.interceptors.response.use(
     return response
   },
   (error) => {
+    console.log('err ', error)
     if (
       error?.response?.status === 401
       && localStorage.getItem('token')

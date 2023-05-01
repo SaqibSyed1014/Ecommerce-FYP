@@ -170,7 +170,7 @@ export default {
   mixins: [togglePasswordVisibility],
   data() {
     return {
-      // status: '',
+      status: '',
       password: '',
       userEmail: '',
       // validation rules
@@ -180,6 +180,10 @@ export default {
     }
   },
   computed: {
+    getUserData() {
+      console.log('here ', this.$store.getters['auth/getUser'])
+      return this.$store.getters['auth/getUser']
+    },
     passwordToggleIcon() {
       return this.passwordFieldType === 'password' ? 'EyeIcon' : 'EyeOffIcon'
     },

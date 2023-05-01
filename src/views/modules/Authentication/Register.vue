@@ -7,7 +7,7 @@
         <b-link class="brand-logo">
           <vuexy-logo />
           <h2 class="brand-text text-primary ml-1">
-            Vuexy
+            Eco-Shop
           </h2>
         </b-link>
 
@@ -22,7 +22,7 @@
         <validation-observer ref="registerForm">
           <b-form
             class="auth-register-form mt-2"
-            @submit.prevent="validationForm"
+            @submit.prevent="registeringUser"
           >
             <!-- username -->
             <b-form-group
@@ -36,10 +36,11 @@
               >
                 <b-form-input
                   id="username"
-                  v-model="username"
+                  v-model="form.username"
                   :state="errors.length > 0 ? false:null"
                   name="register-username"
-                  placeholder="johndoe"
+                  type="text"
+                  placeholder="johndoe123"
                 />
                 <small class="text-danger">{{ errors[0] }}</small>
               </validation-provider>
@@ -57,10 +58,31 @@
               >
                 <b-form-input
                   id="email"
-                  v-model="regEmail"
+                  v-model="form.email"
                   :state="errors.length > 0 ? false:null"
                   name="register-email"
+                  type="email"
                   placeholder="john@example.com"
+                />
+                <small class="text-danger">{{ errors[0] }}</small>
+              </validation-provider>
+            </b-form-group>
+
+            <!-- email -->
+            <b-form-group
+              label="Full Name"
+              label-for="fullName"
+            >
+              <validation-provider
+                #default="{ errors }"
+                name="Full Name"
+                rules="required"
+              >
+                <b-form-input
+                  id="fullName"
+                  v-model="form.full_name"
+                  :state="errors.length > 0 ? false:null"
+                  placeholder="John Doe"
                 />
                 <small class="text-danger">{{ errors[0] }}</small>
               </validation-provider>
@@ -74,7 +96,7 @@
               <validation-provider
                 #default="{ errors }"
                 name="Password"
-                rules="required"
+                rules="required|min:8"
               >
                 <b-input-group
                   class="input-group-merge"
@@ -82,7 +104,7 @@
                 >
                   <b-form-input
                     id="password"
-                    v-model="password"
+                    v-model="form.password"
                     :type="passwordFieldType"
                     :state="errors.length > 0 ? false:null"
                     class="form-control-merge"
@@ -119,7 +141,12 @@
               block
               type="submit"
             >
-              Sign up
+              <b-spinner
+                v-if="loading"
+                small
+                label="Loading..."
+              />
+              <span v-else>Sign up</span>
             </b-button>
           </b-form>
         </validation-observer>
@@ -168,7 +195,7 @@
 <script>
 import { ValidationProvider, ValidationObserver } from 'vee-validate'
 import VuexyLogo from '@core/layouts/components/Logo.vue'
-import { required, email } from '@validations'
+import { required, email, min } from '@validations'
 import { togglePasswordVisibility } from '@core/mixins/ui/forms'
 import ToastificationContent from '@core/components/toastification/ToastificationContent.vue'
 
@@ -182,13 +209,19 @@ export default {
   mixins: [togglePasswordVisibility],
   data() {
     return {
-      regEmail: '',
-      username: '',
-      password: '',
+      form: {
+        email: '',
+        username: '',
+        full_name: '',
+        password: '',
+        phone_number: '',
+      },
       status: '',
       // validation rules
       required,
       email,
+      min,
+      loading: false,
     }
   },
   computed: {
@@ -197,17 +230,25 @@ export default {
     },
   },
   methods: {
-    validationForm() {
-      this.$refs.registerForm.validate().then((success) => {
+    registeringUser() {
+      this.$refs.registerForm.validate().then(async (success) => {
         if (success) {
-          this.$toast({
-            component: ToastificationContent,
-            props: {
-              title: 'Form Submitted',
-              icon: 'EditIcon',
-              variant: 'success',
-            },
+          this.loading = true
+          const formData = new FormData()
+          const entries = Object.entries(this.form)
+          entries.forEach(([key, value]) => {
+            formData.append(`${key}`, value)
           })
+          await this.$store.dispatch('auth/registerUser', formData)
+          this.loading = false
+          // this.$toast({
+          //   component: ToastificationContent,
+          //   props: {
+          //     title: 'Form Submitted',
+          //     icon: 'EditIcon',
+          //     variant: 'success',
+          //   },
+          // })
         }
       })
     },
