@@ -172,7 +172,7 @@ export default {
     return {
       status: '',
       password: '',
-      userEmail: '',
+      userEmail: this.$store.getters['auth/getUser']?.email || '',
       // validation rules
       required,
       email,
@@ -180,10 +180,6 @@ export default {
     }
   },
   computed: {
-    getUserData() {
-      console.log('here ', this.$store.getters['auth/getUser'])
-      return this.$store.getters['auth/getUser']
-    },
     passwordToggleIcon() {
       return this.passwordFieldType === 'password' ? 'EyeIcon' : 'EyeOffIcon'
     },

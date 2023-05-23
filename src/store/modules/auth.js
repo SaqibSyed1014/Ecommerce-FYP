@@ -6,8 +6,8 @@ const getters = {
   getUser: (state) => state.user || {},
 }
 const getDefaultState = () => ({
-  token: null,
-  user: {},
+  token: localStorage.getItem('token') || null,
+  user: JSON.parse(localStorage.getItem('user')) || {},
 })
 const mutations = {
   SET_USER_ROLES(state, roles) {
@@ -20,6 +20,7 @@ const mutations = {
   },
   SET_USER(state, user) {
     state.user = user
+    localStorage.setItem('user', JSON.stringify(user))
   },
   SET_AUTH_ERRORS(state, errors) {
     state.errors = errors
