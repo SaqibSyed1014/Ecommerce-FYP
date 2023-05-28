@@ -15,8 +15,8 @@ const mutations = {
     state.user.roles = roles
   },
   SET_TOKEN(state, data) {
-    state.token = data.token
-    localStorage.setItem('token', data.token)
+    state.token = data
+    localStorage.setItem('token', data)
   },
   SET_USER(state, user) {
     state.user = user
@@ -45,9 +45,10 @@ const actions = {
         console.error(error)
       })
   },
-  login(vuexContext, payload) {
+  login({ commit }, payload) {
     return AuthService.login(payload)
-      .then((data) => {
+      .then(({ data }) => {
+        commit('SET_TOKEN', data?.access)
         console.log(data)
       })
       .catch((error) => {

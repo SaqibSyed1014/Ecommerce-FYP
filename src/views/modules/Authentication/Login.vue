@@ -107,9 +107,14 @@
               type="submit"
               block
               :disabled="invalid"
-              @click="$router.push({ name: 'all-products' })"
+              @click="loggingIn"
             >
-              Sign in
+              <b-spinner
+                v-if="loginInProcess"
+                small
+                label="Loading..."
+              />
+              <span v-else>Sign in</span>
             </b-button>
           </b-form>
         </validation-observer>
@@ -160,6 +165,7 @@ import { ValidationProvider, ValidationObserver } from 'vee-validate'
 import { required, email } from '@validations'
 import { togglePasswordVisibility } from '@core/mixins/ui/forms'
 import VuexyLogo from '@core/layouts/components/Logo.vue'
+import router from '@/router'
 
 export default {
   components: {
@@ -176,6 +182,7 @@ export default {
       // validation rules
       required,
       email,
+      loginInProcess: false,
       processInProgress: false,
     }
   },
@@ -184,7 +191,14 @@ export default {
       return this.passwordFieldType === 'password' ? 'EyeIcon' : 'EyeOffIcon'
     },
   },
-  methods: {},
+  methods: {
+    async loggingIn() {
+      this.loginInProcess = true
+      await this.$store.dispatch('auth/login', { email: this.userEmail, password: this.password })
+        .then(() => this.$router.push({ name: 'all-products' }))
+      this.loginInProcess = false
+    },
+  },
 }
 </script>
 

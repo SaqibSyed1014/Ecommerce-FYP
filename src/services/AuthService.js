@@ -14,7 +14,7 @@ export default {
    * @param {*} payload
    */
   login(payload) {
-    return axios.post('token/', payload)
+    return axios.post(`${basePath}/login/`, payload)
   },
   /**
    *  Used to remove session of user from server
