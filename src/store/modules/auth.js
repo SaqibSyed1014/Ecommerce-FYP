@@ -45,10 +45,11 @@ const actions = {
         console.error(error)
       })
   },
-  login({ commit }, payload) {
+  login({ dispatch, commit }, payload) {
     return AuthService.login(payload)
-      .then(({ data }) => {
+      .then(async ({ data }) => {
         commit('SET_TOKEN', data?.access)
+        await dispatch('fetchUser')
         console.log(data)
       })
       .catch((error) => {
@@ -57,7 +58,10 @@ const actions = {
   },
   fetchUser() {
     return AuthService.fetchUser()
-      .then((data) => Promise.reject(data))
+      .then(({ data }) => {
+        console.log('me ', data)
+        router.push({ name: 'all-products' })
+      })
       .catch((error) => Promise.reject(error))
   },
   forgetPassword(vuexContext, payload) {

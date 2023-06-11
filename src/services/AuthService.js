@@ -1,6 +1,6 @@
 import axios from '@axios'
 
-const basePath = 'http://16.16.193.35/auth'
+const basePath = 'http://16.16.251.243:8000/auth'
 export default {
   /**
    *  Accepts User details to register a user
@@ -26,7 +26,7 @@ export default {
    *  Used to remove session of user from server
    */
   fetchUser() {
-    return axios.get('/user')
+    return axios.get(`${basePath}/me/`)
   },
   /**
    *  Initiate Forget password

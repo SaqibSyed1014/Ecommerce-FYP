@@ -8,7 +8,6 @@ const axiosIns = axios.create({
 })
 
 axiosIns.interceptors.request.use((request) => {
-  // const token = localStorage.getItem('token')
   const token = localStorage.getItem('token')
   if (token) {
     // eslint-disable-next-line no-param-reassign
@@ -27,7 +26,6 @@ const showNotification = (message) => {
 }
 axiosIns.interceptors.response.use(
   (response) => {
-    console.log('res ', response)
     if (
       localStorage.getItem('token') !== null
       && response
