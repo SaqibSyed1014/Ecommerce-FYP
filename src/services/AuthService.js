@@ -1,6 +1,6 @@
 import axios from '@axios'
 
-const basePath = 'http://16.16.251.243:8000/auth'
+const basePath = 'http://13.50.247.255:8000/auth'
 export default {
   /**
    *  Accepts User details to register a user

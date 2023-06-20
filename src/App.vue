@@ -50,10 +50,8 @@ export default {
       return this.$store.state.appConfig.layout.type
     },
   },
-  created() {
-    localStorage.setItem('userData', JSON.stringify({
-      id: 1, fullName: 'John Doe', username: 'johndoe', avatar: '/img/13-small.d796bffd.png', email: 'admin@demo.com', role: 'admin', ability: [{ action: 'manage', subject: 'all' }], extras: { eCommerceCartItemsCount: 5 },
-    }))
+  async created() {
+    if (localStorage.getItem('userData')) await this.$store.dispatch('auth/fetchUser')
   },
   beforeCreate() {
     // Set colors in theme

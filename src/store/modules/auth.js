@@ -20,7 +20,7 @@ const mutations = {
   },
   SET_USER(state, user) {
     state.user = user
-    localStorage.setItem('user', JSON.stringify(user))
+    localStorage.setItem('userData', JSON.stringify(user))
   },
   SET_AUTH_ERRORS(state, errors) {
     state.errors = errors
@@ -50,17 +50,16 @@ const actions = {
       .then(async ({ data }) => {
         commit('SET_TOKEN', data?.access)
         await dispatch('fetchUser')
-        console.log(data)
+        await router.push({ name: 'all-products' })
       })
       .catch((error) => {
         console.error(error)
       })
   },
-  fetchUser() {
+  fetchUser({ commit }) {
     return AuthService.fetchUser()
       .then(({ data }) => {
-        console.log('me ', data)
-        router.push({ name: 'all-products' })
+        commit('SET_USER', data)
       })
       .catch((error) => Promise.reject(error))
   },
