@@ -9,7 +9,7 @@
         >
           <div class="filter-section">
             <label>Filters:</label>
-            <filter-section />
+            <filter-section :categories="categories" :products="products" @filter-by-category="filteringByCategory" />
           </div>
         </b-col>
         <b-col lg="9">
@@ -26,7 +26,7 @@
                   FILTERS
                 </div>
               </b-row>
-              <label class="products-visible">Showing <span>12 of 35</span> Products</label>
+              <label class="products-visible">Showing <span>{{ products.length }}</span> Products</label>
             </b-row>
           </b-col>
           <b-row class="product-list">
@@ -51,14 +51,13 @@
       backdrop
       shadow
     >
-      <filter-section />
+      <filter-section :categories="categories" :products="products" @filter-by-category="filteringByCategory" />
     </b-sidebar>
   </div>
 </template>
 
 <script>
 import BreadCrumbs from '@/views/modules/Products/components/BreadCrumbs.vue'
-import { products } from '@/views/demoData'
 import FilterSection from '@/views/modules/Products/components/FilterSection.vue'
 import product from './components/Product.vue'
 
@@ -70,8 +69,26 @@ export default {
     FilterSection,
   },
   data: () => ({
-    products,
+    selectedCategory: null,
   }),
+  computed: {
+    categories() {
+      return this.$store.getters['products/getAllCategories'] || []
+    },
+    products() {
+      const products = this.$store.getters['products/getAllProducts']
+      console.log('th ', this.selectedCategory)
+      if (this.selectedCategory) return products.filter((prod) => prod.Category === this.selectedCategory)
+      return products || []
+    },
+  },
+  async created() {
+    await this.$store.dispatch('products/fetchPCategories')
+    await this.$store.dispatch('products/fetchProducts')
+  },
+  methods: {
+    filteringByCategory(id) { this.selectedCategory = id },
+  },
 }
 </script>
 

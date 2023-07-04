@@ -1,8 +1,11 @@
 import axios from '@axios'
 
-const basePath = 'http://13.50.247.255:8000/auth'
+const basePath = 'http://13.51.162.13'
 export default {
-  getProducts(payload) {
-    return axios.get(`${basePath}/category/product/`, payload)
+  getProducts() {
+    return axios.get(`${basePath}/category/product/`)
+  },
+  getCategories() {
+    return axios.get(`${basePath}/category`)
   },
 }

@@ -2,8 +2,8 @@
   <b-card no-body class="product shadow-none">
     <figure class="product-media">
       <div @click="navigateDetails">
-        <b-card-img :src="product.image[0]" :alt="product.name" />
-        <b-card-img v-if="product.image[1]" :src="product.image[1]" />
+        <b-card-img v-if="product.image" :src="product.image" :alt="product.name" />
+        <img v-else src="../../../../assets/images/imgMockup.jpg" style="object-fit: cover;" />
       </div>
       <div class="product-left-action">
         <div class="icon-bubble">
@@ -20,13 +20,13 @@
     </figure>
     <b-card-body class="product-body">
       <div class="product-cat">
-        <span>{{ product.category }}</span>
+        <span>{{ category }}</span>
       </div>
       <h3 class="product-title"><a href="" class="">{{ product.name }}</a></h3>
       <div class="product-price">
-        <span v-if="!product.sale">{{ `${product.price}.00$` }}</span>
-        <span v-if="product.sale" class="new-price">{{ `${product.price}.00$` }}</span>
-        <span v-if="product.sale" class="old-price">{{ `${product.oldPrice}.00$` }}</span>
+        <span >{{ `${product.Price}.00$` }}</span>
+<!--        <span  class="new-price">{{ `${product.price}.00$` }}</span>-->
+<!--        <span  class="old-price">{{ `${product.oldPrice}.00$` }}</span>-->
       </div>
     </b-card-body>
   </b-card>
@@ -39,6 +39,9 @@ export default {
     product: {
       type: Object,
       required: true,
+    },
+    category: {
+      type: String,
     },
   },
   methods: {
