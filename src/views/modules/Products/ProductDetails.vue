@@ -4,19 +4,19 @@
     <div class="container">
       <b-row class="parent">
         <b-col md="6" class="product-gallery">
-          <div class="product-image" v-for="(img, i) in product.image" :key="i">
-            <img :src="img" :alt="product.name">
+          <div v-if="product.image" class="product-image">
+            <img :src="product.image" :alt="product.name">
           </div>
         </b-col>
         <b-col md="6" class="product-info pl-md-0">
           <div class="sticky pb-1">
             <div class="product-title">{{ product.name }}</div>
             <div class="product-price">
-              <span v-if="!product.sale">{{ `${product.price}.00$` }}</span>
-              <div v-if="product.sale" class="new-price">{{ `${product.price}.00$` }}</div>
-              <div v-if="product.sale" class="old-price">{{ `${product.oldPrice}.00$` }}</div>
+              <span>{{ `${product.Price}.00$` }}</span>
+<!--              <div v-if="product.sale" class="new-price">{{ `${product.price}.00$` }}</div>-->
+<!--              <div v-if="product.sale" class="old-price">{{ `${product.oldPrice}.00$` }}</div>-->
             </div>
-            <div class="product-description">{{ product.desc }}</div>
+            <div class="product-description">{{ product.description }}</div>
             <b-button variant="outline-primary">
               <feather-icon icon="ShoppingCartIcon" size="16" />
               <span>Add To Cart</span>
@@ -45,29 +45,29 @@
                 <p>We deliver to over 100 countries around the world. For full details of the delivery options we offer, please view our Delivery information
                   We hope you’ll love every purchase, but if you ever need to return an item you can do so within a month of receipt. For full details of how to make a return, please view our Returns information</p>
               </app-collapse-item>
-              <app-collapse-item
-                is-visible
-                :title="`Reviews (${product.reviews.length})`"
-              >
-                <div v-if="product.reviews.length" class="product-reviews">
-                  <div class="product-review" v-for="(review, i) in product.reviews" :key="i">
-                    <b-row>
-                      <b-col
-                        cols="3"
-                      >
-                        <h4>{{ review.user }}</h4>
-                      </b-col>
-                      <b-col
-                        cols="9"
-                      >
-                        <h4>{{ review.subject }}</h4>
-                        <p>{{ review.comment }}</p>
-                      </b-col>
-                    </b-row>
-                  </div>
-                </div>
-                <h4 v-else class="text-center">No Reviews Posted Yet</h4>
-              </app-collapse-item>
+<!--              <app-collapse-item-->
+<!--                is-visible-->
+<!--                :title="`Reviews (${product.reviews.length})`"-->
+<!--              >-->
+<!--                <div v-if="product.reviews.length" class="product-reviews">-->
+<!--                  <div class="product-review" v-for="(review, i) in product.reviews" :key="i">-->
+<!--                    <b-row>-->
+<!--                      <b-col-->
+<!--                        cols="3"-->
+<!--                      >-->
+<!--                        <h4>{{ review.user }}</h4>-->
+<!--                      </b-col>-->
+<!--                      <b-col-->
+<!--                        cols="9"-->
+<!--                      >-->
+<!--                        <h4>{{ review.subject }}</h4>-->
+<!--                        <p>{{ review.comment }}</p>-->
+<!--                      </b-col>-->
+<!--                    </b-row>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <h4 v-else class="text-center">No Reviews Posted Yet</h4>-->
+<!--              </app-collapse-item>-->
             </app-collapse>
           </div>
         </b-col>
@@ -94,6 +94,7 @@ export default {
   mounted() {
     this.product = JSON.parse(localStorage.getItem('view-details'))
     this.$route.meta.breadcrumb[2].text = this.product.name
+    console.log('test ', this.$route.meta)
   },
 }
 </script>
